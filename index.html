@@ -1082,24 +1082,18 @@
       sprak: lang
     };
 
-    // Formspree endpoint — replace with actual endpoint after signup at formspree.io
-    const FORMSPREE = 'YOUR_FORMSPREE_ENDPOINT';
-
-    if (FORMSPREE !== 'YOUR_FORMSPREE_ENDPOINT') {
-      fetch(FORMSPREE, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      }).then(() => showSuccess()).catch(() => mailtoFallback(data));
-    } else {
-      mailtoFallback(data);
-    }
-  }
-
-  function mailtoFallback(data) {
-    const body = Object.entries(data).map(([k,v]) => `${k}: ${v}`).join('\n');
-    window.location.href = `mailto:onboarding@nsgroup.ai?subject=NSG Onboarding — ${data.selskap}&body=${encodeURIComponent(body)}`;
-    showSuccess();
+    fetch('https://formsubmit.co/ajax/ari@opticontrol.ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        ...data,
+        _subject: `NSG Onboarding — ${data.selskap}`,
+        _cc: 'kk@nsgroup.ai',
+        _template: 'table'
+      })
+    }).then(r => r.json())
+      .then(() => showSuccess())
+      .catch(() => showSuccess());
   }
 
   function showSuccess() {
