@@ -4,472 +4,131 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NSG Onboarding — Nordic Scaling Group</title>
-  <meta name="description" content="Start din vekstreise med Nordic Scaling Group. Fyll ut onboarding-skjemaet for å forberede vår første workshop."/>
+  <meta name="description" content="Start din vekstreise med Nordic Scaling Group. Fyll ut onboarding-skjemaet for å forberede din outreach-strategi."/>
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy:    #0F1B38;
-      --navy-d:  #08112A;
-      --blue:    #2563EB;
-      --blue-l:  #DBEAFE;
-      --blue-m:  rgba(37,99,235,.12);
-      --ink:     #0F172A;
-      --body:    #334155;
-      --muted:   #64748B;
-      --bg:      #F8FAFC;
-      --border:  #E2E8F0;
-      --white:   #FFFFFF;
-      --success: #10B981;
-      --radius:  12px;
+      --navy:   #0F1B38;
+      --navy-d: #08112A;
+      --blue:   #2563EB;
+      --blue-l: #DBEAFE;
+      --blue-m: rgba(37,99,235,.1);
+      --ink:    #0F172A;
+      --body:   #334155;
+      --muted:  #64748B;
+      --bg:     #F8FAFC;
+      --border: #E2E8F0;
+      --white:  #FFFFFF;
+      --radius: 12px;
     }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    /* HEADER */
+    header { background: var(--navy); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 16px rgba(0,0,0,.25); }
+    .logo { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
+    .logo-mark { width: 34px; height: 34px; background: linear-gradient(135deg,#1E3A8A,#0F1B38); border: 1.5px solid rgba(255,255,255,.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; color: #fff; }
+    .logo-text { font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.9); line-height: 1.2; }
+    .logo-sub { font-size: .65rem; font-weight: 400; color: rgba(255,255,255,.5); display: block; }
+    .lang-toggle { display: flex; align-items: center; gap: .3rem; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 999px; padding: .3rem .4rem; }
+    .lang-btn { background: none; border: none; cursor: pointer; padding: .25rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.5); transition: all .2s; }
+    .lang-btn.active { background: var(--blue); color: #fff; }
 
-    /* ── HEADER ── */
-    header {
-      background: var(--navy);
-      padding: 0 2rem;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 16px rgba(0,0,0,.25);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      text-decoration: none;
-    }
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      background: linear-gradient(135deg, #1E3A8A, #0F1B38);
-      border: 1.5px solid rgba(255,255,255,.2);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1rem;
-      color: #fff;
-      letter-spacing: -.05em;
-    }
-    .logo-text {
-      font-size: .8rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.9);
-      line-height: 1.2;
-    }
-    .logo-sub {
-      font-size: .65rem;
-      font-weight: 400;
-      color: rgba(255,255,255,.5);
-      display: block;
-    }
-
-    /* Language toggle */
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: .3rem;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 999px;
-      padding: .3rem .4rem;
-    }
-    .lang-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: .25rem .6rem;
-      border-radius: 999px;
-      font-size: .75rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.5);
-      transition: all .2s;
-    }
-    .lang-btn.active {
-      background: var(--blue);
-      color: #fff;
-    }
-
-    /* ── PROGRESS ── */
-    .progress-wrap {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-    }
-    .progress-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: .6rem;
-    }
-    .progress-label {
-      font-size: .78rem;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .progress-pct {
-      font-size: .78rem;
-      font-weight: 700;
-      color: var(--blue);
-    }
-    .progress-bar {
-      height: 5px;
-      background: var(--border);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--blue), #60A5FA);
-      border-radius: 999px;
-      transition: width .5s cubic-bezier(.4,0,.2,1);
-    }
-    .step-dots {
-      display: flex;
-      gap: .35rem;
-      margin-top: .6rem;
-    }
-    .step-dot {
-      height: 4px;
-      flex: 1;
-      border-radius: 999px;
-      background: var(--border);
-      transition: background .3s;
-    }
+    /* PROGRESS */
+    .progress-wrap { background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+    .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: .6rem; }
+    .progress-label { font-size: .78rem; font-weight: 600; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+    .progress-pct { font-size: .78rem; font-weight: 700; color: var(--blue); }
+    .progress-bar { height: 5px; background: var(--border); border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg,var(--blue),#60A5FA); border-radius: 999px; transition: width .5s cubic-bezier(.4,0,.2,1); }
+    .step-dots { display: flex; gap: .35rem; margin-top: .6rem; }
+    .step-dot { height: 4px; flex: 1; border-radius: 999px; background: var(--border); transition: background .3s; }
     .step-dot.done { background: var(--blue); }
     .step-dot.active { background: #93C5FD; }
 
-    /* ── MAIN ── */
-    main {
-      flex: 1;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 3rem 1.5rem 4rem;
-    }
-    .form-shell {
-      width: 100%;
-      max-width: 680px;
-    }
+    /* MAIN */
+    main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 3rem 1.5rem 4rem; }
+    .form-shell { width: 100%; max-width: 680px; }
 
-    /* ── STEP CARD ── */
-    .step {
-      display: none;
-      animation: slideIn .35s cubic-bezier(.4,0,.2,1);
-    }
+    /* STEPS */
+    .step { display: none; animation: slideIn .35s cubic-bezier(.4,0,.2,1); }
     .step.active { display: block; }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(28px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    .step-back {
-      animation-name: slideBack;
-    }
-    @keyframes slideBack {
-      from { opacity: 0; transform: translateX(-28px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
+    @keyframes slideIn { from { opacity:0; transform:translateX(28px); } to { opacity:1; transform:translateX(0); } }
+    .step.step-back { animation-name: slideBack; }
+    @keyframes slideBack { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
 
-    .step-header {
-      margin-bottom: 2rem;
-    }
-    .step-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      background: var(--blue-m);
-      color: var(--blue);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: .3rem .75rem;
-      border-radius: 999px;
-      margin-bottom: .9rem;
-    }
-    .step-title {
-      font-size: clamp(1.5rem, 3.5vw, 2rem);
-      font-weight: 800;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: .6rem;
-      letter-spacing: -.03em;
-    }
-    .step-desc {
-      font-size: .9rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
+    .step-header { margin-bottom: 2rem; }
+    .step-badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--blue-m); color: var(--blue); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .3rem .75rem; border-radius: 999px; margin-bottom: .9rem; }
+    .step-title { font-size: clamp(1.5rem,3.5vw,2rem); font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: .6rem; letter-spacing: -.03em; }
+    .step-desc { font-size: .9rem; color: var(--muted); line-height: 1.7; }
 
-    /* ── FORM FIELDS ── */
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .field {
-      margin-bottom: 1.25rem;
-    }
-    label {
-      display: block;
-      font-size: .8rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: .45rem;
-      letter-spacing: .01em;
-    }
+    /* FIELDS */
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { margin-bottom: 1.25rem; }
+    label { display: block; font-size: .8rem; font-weight: 600; color: var(--ink); margin-bottom: .45rem; }
     label .req { color: var(--blue); margin-left: .15rem; }
-    input[type=text],
-    input[type=email],
-    input[type=tel],
-    select,
-    textarea {
-      width: 100%;
-      padding: .8rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      font-family: 'Inter', sans-serif;
-      font-size: .9rem;
-      color: var(--ink);
-      background: var(--white);
-      transition: border-color .2s, box-shadow .2s;
-      outline: none;
-      appearance: none;
+    input[type=text], input[type=email], input[type=tel], input[type=url], select, textarea {
+      width: 100%; padding: .8rem 1rem; border: 1.5px solid var(--border); border-radius: var(--radius);
+      font-family: 'Inter',sans-serif; font-size: .9rem; color: var(--ink); background: var(--white);
+      transition: border-color .2s, box-shadow .2s; outline: none; appearance: none;
     }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px var(--blue-m);
-    }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-m); }
     textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
     select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right .9rem center;
-      padding-right: 2.5rem;
-      cursor: pointer;
+      background-repeat: no-repeat; background-position: right .9rem center; padding-right: 2.5rem; cursor: pointer;
     }
 
-    /* Checkbox / Radio options */
-    .options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .65rem;
-    }
+    /* OPTIONS */
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; }
     .options-grid.cols-1 { grid-template-columns: 1fr; }
-    .opt-label {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      padding: .85rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: all .2s;
-      font-size: .875rem;
-      font-weight: 500;
-      color: var(--body);
-      background: var(--white);
-      position: relative;
-    }
+    .options-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .opt-label { display: flex; align-items: center; gap: .75rem; padding: .85rem 1rem; border: 1.5px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: all .2s; font-size: .875rem; font-weight: 500; color: var(--body); background: var(--white); }
     .opt-label:hover { border-color: var(--blue); background: var(--blue-l); }
-    .opt-label input[type=checkbox],
-    .opt-label input[type=radio] { display: none; }
-    .opt-check {
-      width: 18px; height: 18px;
-      border: 2px solid var(--border);
-      border-radius: 5px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .2s;
-    }
+    .opt-label input[type=checkbox], .opt-label input[type=radio] { display: none; }
+    .opt-check { width: 18px; height: 18px; border: 2px solid var(--border); border-radius: 5px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all .2s; }
     .opt-label.radio .opt-check { border-radius: 50%; }
-    .opt-label input:checked ~ .opt-check {
-      background: var(--blue);
-      border-color: var(--blue);
-    }
-    .opt-label input:checked ~ .opt-check::after {
-      content: '';
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: white;
-    }
-    .opt-label:has(input:checked) {
-      border-color: var(--blue);
-      background: var(--blue-l);
-      color: var(--blue);
-      font-weight: 600;
-    }
+    .opt-label input:checked ~ .opt-check { background: var(--blue); border-color: var(--blue); }
+    .opt-label input:checked ~ .opt-check::after { content:''; width:5px; height:5px; border-radius:50%; background:white; }
+    .opt-label:has(input:checked) { border-color: var(--blue); background: var(--blue-l); color: var(--blue); font-weight: 600; }
 
-    /* ── NAVIGATION ── */
-    .step-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      gap: 1rem;
-    }
-    .btn-back {
-      background: none;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: .75rem 1.5rem;
-      font-family: 'Inter', sans-serif;
-      font-size: .875rem;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all .2s;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
+    /* NAV */
+    .step-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); gap: 1rem; }
+    .btn-back { background: none; border: 1.5px solid var(--border); border-radius: var(--radius); padding: .75rem 1.5rem; font-family: 'Inter',sans-serif; font-size: .875rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .2s; }
     .btn-back:hover { border-color: var(--ink); color: var(--ink); }
     .btn-back:disabled { opacity: .3; pointer-events: none; }
-    .btn-next {
-      background: var(--blue);
-      border: none;
-      border-radius: var(--radius);
-      padding: .8rem 2rem;
-      font-family: 'Inter', sans-serif;
-      font-size: .9rem;
-      font-weight: 700;
-      color: #fff;
-      cursor: pointer;
-      transition: all .2s;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      margin-left: auto;
-    }
+    .btn-next { background: var(--blue); border: none; border-radius: var(--radius); padding: .8rem 2rem; font-family: 'Inter',sans-serif; font-size: .9rem; font-weight: 700; color: #fff; cursor: pointer; transition: all .2s; margin-left: auto; }
     .btn-next:hover { background: #1D4ED8; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,99,235,.35); }
-    .btn-submit {
-      background: linear-gradient(135deg, var(--navy), #1E3A8A);
-      padding: .9rem 2.5rem;
-      font-size: .95rem;
-    }
-    .btn-submit:hover { background: linear-gradient(135deg, var(--navy-d), #1E3A8A); }
+    .btn-submit { background: linear-gradient(135deg,var(--navy),#1E3A8A); padding: .9rem 2.5rem; }
+    .btn-submit:hover { background: linear-gradient(135deg,var(--navy-d),#1E3A8A); }
 
-    /* ── STEP 9: SUMMARY ── */
-    .summary-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .summary-row {
-      display: flex;
-      gap: .75rem;
-      padding: .6rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: .875rem;
-    }
+    /* SUMMARY */
+    .summary-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; }
+    .summary-row { display: flex; gap: .75rem; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .875rem; }
     .summary-row:last-child { border-bottom: none; }
-    .summary-key { font-weight: 600; color: var(--muted); min-width: 160px; flex-shrink: 0; }
+    .summary-key { font-weight: 600; color: var(--muted); min-width: 180px; flex-shrink: 0; }
     .summary-val { color: var(--ink); }
 
-    /* ── SUCCESS ── */
-    #success {
-      display: none;
-      text-align: center;
-      padding: 4rem 2rem;
-      animation: slideIn .4s ease;
-    }
-    .success-icon {
-      width: 72px; height: 72px;
-      background: #D1FAE5;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-    }
-    .success-icon svg { width: 36px; height: 36px; stroke: var(--success); }
-    .success-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--ink);
-      margin-bottom: .75rem;
-      letter-spacing: -.03em;
-    }
-    .success-desc {
-      font-size: .95rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 420px;
-      margin: 0 auto 2rem;
-    }
-    .next-steps {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      text-align: left;
-      max-width: 420px;
-      margin: 0 auto;
-    }
+    /* SUCCESS */
+    #success { display: none; text-align: center; padding: 4rem 2rem; animation: slideIn .4s ease; }
+    .success-icon { width: 72px; height: 72px; background: #D1FAE5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+    .success-icon svg { width: 36px; height: 36px; stroke: #10B981; }
+    .success-title { font-size: 1.75rem; font-weight: 800; color: var(--ink); margin-bottom: .75rem; letter-spacing: -.03em; }
+    .success-desc { font-size: .95rem; color: var(--muted); line-height: 1.7; max-width: 420px; margin: 0 auto 2rem; }
+    .next-steps { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: left; max-width: 420px; margin: 0 auto; }
     .next-steps h3 { font-size: .85rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; }
-    .next-step-item {
-      display: flex;
-      gap: .75rem;
-      align-items: flex-start;
-      padding: .6rem 0;
-      font-size: .875rem;
-      color: var(--body);
-    }
-    .ns-num {
-      width: 22px; height: 22px;
-      background: var(--blue);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .7rem;
-      font-weight: 700;
-      color: #fff;
-      flex-shrink: 0;
-      margin-top: .05rem;
-    }
+    .next-step-item { display: flex; gap: .75rem; align-items: flex-start; padding: .6rem 0; font-size: .875rem; color: var(--body); }
+    .ns-num { width: 22px; height: 22px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .7rem; font-weight: 700; color: #fff; flex-shrink: 0; margin-top: .05rem; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,.45);
-      text-align: center;
-      padding: 1.25rem;
-      font-size: .75rem;
-    }
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,.45); text-align: center; padding: 1.25rem; font-size: .75rem; }
     footer a { color: rgba(255,255,255,.6); text-decoration: none; }
     footer a:hover { color: #fff; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 600px) {
-      .field-row { grid-template-columns: 1fr; }
-      .options-grid { grid-template-columns: 1fr; }
+      .field-row, .options-grid, .options-grid.cols-3 { grid-template-columns: 1fr; }
       main { padding: 1.5rem 1rem 3rem; }
       .progress-wrap { padding: .85rem 1rem; }
       header { padding: 0 1rem; }
@@ -478,14 +137,10 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <a class="logo" href="https://www.nsgroup.ai" target="_blank">
     <div class="logo-mark">N</div>
-    <div class="logo-text">
-      Nordic Scaling Group
-      <span class="logo-sub">Onboarding</span>
-    </div>
+    <div class="logo-text">Nordic Scaling Group<span class="logo-sub">Onboarding</span></div>
   </a>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('no')" id="btn-no">🇳🇴 NO</button>
@@ -493,7 +148,6 @@
   </div>
 </header>
 
-<!-- PROGRESS -->
 <div class="progress-wrap">
   <div class="progress-meta">
     <span class="progress-label" id="progress-label">Steg 1 av 9</span>
@@ -503,36 +157,31 @@
   <div class="step-dots" id="step-dots"></div>
 </div>
 
-<!-- MAIN -->
 <main>
-  <div class="form-shell" id="form-shell">
+<div class="form-shell" id="form-shell">
 
-    <!-- STEP 1: Kontaktinformasjon -->
-    <div class="step active" data-step="1">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span data-no="Steg 1 av 9" data-en="Step 1 of 9">Steg 1 av 9</span>
-        </div>
-        <h1 class="step-title" data-no="Kontaktinformasjon" data-en="Contact Information">Kontaktinformasjon</h1>
-        <p class="step-desc" data-no="Dette skjemaet hjelper teamet vårt med å forberede den best mulige vekststrategien for din bedrift. Etter at du har fylt ut, gjennomfører vi en dypere workshop sammen." data-en="This form helps our team prepare the best possible growth strategy for your company. After completing it, we will conduct an in-depth workshop together.">
-          Dette skjemaet hjelper teamet vårt med å forberede den best mulige vekststrategien for din bedrift. Etter at du har fylt ut, gjennomfører vi en dypere workshop sammen.
-        </p>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label><span data-no="Fornavn" data-en="First name">Fornavn</span><span class="req">*</span></label>
-          <input type="text" id="f-fornavn" placeholder="Ola"/>
-        </div>
-        <div class="field">
-          <label><span data-no="Etternavn" data-en="Last name">Etternavn</span><span class="req">*</span></label>
-          <input type="text" id="f-etternavn" placeholder="Nordmann"/>
-        </div>
+  <!-- STEP 1: Kontaktinformasjon -->
+  <div class="step active" data-step="1">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 1 av 9" data-en="Step 1 of 9">Steg 1 av 9</span></div>
+      <h1 class="step-title" data-no="Kontaktinformasjon" data-en="Contact Information">Kontaktinformasjon</h1>
+      <p class="step-desc" data-no="Dette skjemaet hjelper oss å forberede en skreddersydd outreach-strategi for din bedrift. Etter innsending gjennomfører vi en workshop der vi setter opp kampanjen sammen." data-en="This form helps us prepare a tailored outreach strategy for your business. After submission, we conduct a workshop where we set up the campaign together.">Dette skjemaet hjelper oss å forberede en skreddersydd outreach-strategi for din bedrift. Etter innsending gjennomfører vi en workshop der vi setter opp kampanjen sammen.</p>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label><span data-no="Fornavn" data-en="First name">Fornavn</span><span class="req">*</span></label>
+        <input type="text" id="f-fornavn" placeholder="Ola"/>
       </div>
       <div class="field">
-        <label><span data-no="Selskap" data-en="Company">Selskap</span><span class="req">*</span></label>
-        <input type="text" id="f-selskap" placeholder="Selskap AS"/>
+        <label><span data-no="Etternavn" data-en="Last name">Etternavn</span><span class="req">*</span></label>
+        <input type="text" id="f-etternavn" placeholder="Nordmann"/>
       </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Selskap" data-en="Company">Selskap</span><span class="req">*</span></label>
+      <input type="text" id="f-selskap" placeholder="Selskap AS"/>
+    </div>
+    <div class="field-row">
       <div class="field">
         <label><span data-no="E-post" data-en="Email">E-post</span><span class="req">*</span></label>
         <input type="email" id="f-epost" placeholder="ola@selskap.no"/>
@@ -541,421 +190,342 @@
         <label><span data-no="Telefon" data-en="Phone">Telefon</span></label>
         <input type="tel" id="f-telefon" placeholder="+47 xxx xx xxx"/>
       </div>
-      <div class="field">
-        <label><span data-no="Din rolle i selskapet" data-en="Your role in the company">Din rolle i selskapet</span><span class="req">*</span></label>
-        <select id="f-rolle">
-          <option value="" disabled selected data-no="Velg rolle..." data-en="Select role...">Velg rolle...</option>
-          <option value="CEO/Daglig leder" data-no="CEO / Daglig leder" data-en="CEO / Managing Director">CEO / Daglig leder</option>
-          <option value="CMO/Markedssjef" data-no="CMO / Markedssjef" data-en="CMO / Marketing Director">CMO / Markedssjef</option>
-          <option value="Salgssjef" data-no="Salgssjef" data-en="Sales Director">Salgssjef</option>
-          <option value="Eier" data-no="Eier / Gründer" data-en="Owner / Founder">Eier / Gründer</option>
-          <option value="Annet" data-no="Annet" data-en="Other">Annet</option>
-        </select>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" disabled>← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
-      </div>
     </div>
-
-    <!-- STEP 2: Om selskapet -->
-    <div class="step" data-step="2">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span data-no="Steg 2 av 9" data-en="Step 2 of 9">Steg 2 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="Om selskapet" data-en="About the company">Om selskapet</h2>
-        <p class="step-desc" data-no="Fortell oss om bedriften din slik at vi kan skreddersy den rette vekstmodellen." data-en="Tell us about your business so we can tailor the right growth model for you.">
-          Fortell oss om bedriften din slik at vi kan skreddersy den rette vekstmodellen.
-        </p>
-      </div>
-      <div class="field">
-        <label><span data-no="Bransje" data-en="Industry">Bransje</span><span class="req">*</span></label>
-        <select id="f-bransje">
-          <option value="" disabled selected data-no="Velg bransje..." data-en="Select industry...">Velg bransje...</option>
-          <option data-no="SaaS / Teknologi" data-en="SaaS / Technology">SaaS / Teknologi</option>
-          <option data-no="Finans" data-en="Finance">Finans</option>
-          <option data-no="eCommerce / Handel" data-en="eCommerce / Retail">eCommerce / Handel</option>
-          <option data-no="Helse & Velvære" data-en="Health & Wellness">Helse & Velvære</option>
-          <option data-no="Bygg & Eiendom" data-en="Construction & Real Estate">Bygg & Eiendom</option>
-          <option data-no="Konsulentvirksomhet" data-en="Consulting">Konsulentvirksomhet</option>
-          <option data-no="Media & Markedsføring" data-en="Media & Marketing">Media & Markedsføring</option>
-          <option data-no="Industri / Produksjon" data-en="Industry / Manufacturing">Industri / Produksjon</option>
-          <option data-no="Annet" data-en="Other">Annet</option>
-        </select>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label><span data-no="Antall ansatte" data-en="Number of employees">Antall ansatte</span><span class="req">*</span></label>
-          <select id="f-ansatte">
-            <option value="" disabled selected>—</option>
-            <option>1–10</option>
-            <option>11–25</option>
-            <option>26–50</option>
-            <option>51–100</option>
-            <option>101–250</option>
-            <option>250+</option>
-          </select>
-        </div>
-        <div class="field">
-          <label><span data-no="Årlig omsetning" data-en="Annual revenue">Årlig omsetning</span></label>
-          <select id="f-omsetning">
-            <option value="" disabled selected>—</option>
-            <option data-no="Under 5 MNOK" data-en="Under €500K">Under 5 MNOK</option>
-            <option data-no="5–20 MNOK" data-en="€500K–€2M">5–20 MNOK</option>
-            <option data-no="20–50 MNOK" data-en="€2M–€5M">20–50 MNOK</option>
-            <option data-no="50–200 MNOK" data-en="€5M–€20M">50–200 MNOK</option>
-            <option data-no="Over 200 MNOK" data-en="Over €20M">Over 200 MNOK</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="Primærmarked" data-en="Primary market">Primærmarked</span><span class="req">*</span></label>
-        <div class="options-grid">
-          <label class="opt-label radio"><input type="radio" name="marked" value="B2B"/><span class="opt-check"></span><span data-no="B2B — Bedrift til bedrift" data-en="B2B — Business to Business">B2B — Bedrift til bedrift</span></label>
-          <label class="opt-label radio"><input type="radio" name="marked" value="B2C"/><span class="opt-check"></span><span data-no="B2C — Bedrift til forbruker" data-en="B2C — Business to Consumer">B2C — Bedrift til forbruker</span></label>
-          <label class="opt-label radio"><input type="radio" name="marked" value="Begge"/><span class="opt-check"></span><span data-no="Begge" data-en="Both">Begge</span></label>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="Geografisk marked" data-en="Geographic market">Geografisk marked</span></label>
-        <div class="options-grid">
-          <label class="opt-label"><input type="checkbox" value="Norge"/><span class="opt-check"></span><span data-no="Norge" data-en="Norway">Norge</span></label>
-          <label class="opt-label"><input type="checkbox" value="Skandinavia"/><span class="opt-check"></span><span data-no="Skandinavia" data-en="Scandinavia">Skandinavia</span></label>
-          <label class="opt-label"><input type="checkbox" value="Europa"/><span class="opt-check"></span><span data-no="Europa" data-en="Europe">Europa</span></label>
-          <label class="opt-label"><input type="checkbox" value="Globalt"/><span class="opt-check"></span><span data-no="Globalt" data-en="Global">Globalt</span></label>
-        </div>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
-      </div>
+    <div class="field">
+      <label><span data-no="Din rolle" data-en="Your role">Din rolle</span><span class="req">*</span></label>
+      <select id="f-rolle">
+        <option value="" disabled selected data-no="Velg rolle..." data-en="Select role...">Velg rolle...</option>
+        <option data-no="CEO / Daglig leder" data-en="CEO / Managing Director">CEO / Daglig leder</option>
+        <option data-no="Salgssjef" data-en="Sales Director">Salgssjef</option>
+        <option data-no="CMO / Markedssjef" data-en="CMO / Marketing Director">CMO / Markedssjef</option>
+        <option data-no="Eier / Gründer" data-en="Owner / Founder">Eier / Gründer</option>
+        <option data-no="Annet" data-en="Other">Annet</option>
+      </select>
     </div>
-
-    <!-- STEP 3: Nåværende situasjon -->
-    <div class="step" data-step="3">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <span data-no="Steg 3 av 9" data-en="Step 3 of 9">Steg 3 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="Nåværende situasjon" data-en="Current situation">Nåværende situasjon</h2>
-        <p class="step-desc" data-no="Hvilke kanaler og systemer bruker dere i dag for salg og markedsføring?" data-en="Which channels and systems do you currently use for sales and marketing?">
-          Hvilke kanaler og systemer bruker dere i dag for salg og markedsføring?
-        </p>
-      </div>
-      <div class="field">
-        <label><span data-no="Nåværende salgskanaler" data-en="Current sales channels">Nåværende salgskanaler</span> <span style="color:var(--muted);font-weight:400" data-no="(velg alle som passer)" data-en="(select all that apply)">(velg alle som passer)</span></label>
-        <div class="options-grid">
-          <label class="opt-label"><input type="checkbox" value="Utgående salg"/><span class="opt-check"></span><span data-no="Utgående salg (cold outreach)" data-en="Outbound sales (cold outreach)">Utgående salg</span></label>
-          <label class="opt-label"><input type="checkbox" value="Inngående leads"/><span class="opt-check"></span><span data-no="Inngående leads (inbound)" data-en="Inbound leads">Inngående leads</span></label>
-          <label class="opt-label"><input type="checkbox" value="Referanser"/><span class="opt-check"></span><span data-no="Referanser / nettverk" data-en="Referrals / network">Referanser / nettverk</span></label>
-          <label class="opt-label"><input type="checkbox" value="Paid ads"/><span class="opt-check"></span><span data-no="Betalt annonsering (Meta, Google)" data-en="Paid advertising (Meta, Google)">Betalt annonsering</span></label>
-          <label class="opt-label"><input type="checkbox" value="Content/SEO"/><span class="opt-check"></span><span data-no="Innhold / SEO" data-en="Content / SEO">Innhold / SEO</span></label>
-          <label class="opt-label"><input type="checkbox" value="Feltselgere"/><span class="opt-check"></span><span data-no="Feltselgere / møter" data-en="Field sales / meetings">Feltselgere / møter</span></label>
-          <label class="opt-label"><input type="checkbox" value="eCommerce"/><span class="opt-check"></span><span data-no="eCommerce / nettbutikk" data-en="eCommerce / online store">eCommerce / nettbutikk</span></label>
-          <label class="opt-label"><input type="checkbox" value="Ingen strukturert"/><span class="opt-check"></span><span data-no="Ingen strukturert prosess" data-en="No structured process">Ingen strukturert prosess</span></label>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="CRM-system" data-en="CRM system">CRM-system</span></label>
-        <select id="f-crm">
-          <option value="" disabled selected data-no="Velg CRM..." data-en="Select CRM...">Velg CRM...</option>
-          <option>HubSpot</option>
-          <option>Salesforce</option>
-          <option>Pipedrive</option>
-          <option>Monday.com</option>
-          <option data-no="Excel / Ark" data-en="Excel / Sheets">Excel / Ark</option>
-          <option data-no="Bruker ikke CRM" data-en="Not using CRM">Bruker ikke CRM</option>
-          <option data-no="Annet" data-en="Other">Annet</option>
-        </select>
-      </div>
-      <div class="field">
-        <label><span data-no="Beskriv kort det nåværende salgs- og markedsoppsettet" data-en="Briefly describe your current sales and marketing setup">Beskriv kort det nåværende salgs- og markedsoppsettet</span></label>
-        <textarea id="f-situasjon" data-placeholder-no="F.eks.: Vi har 2 selgere som jobber med utgående, men mangler et strukturert leadflow..." data-placeholder-en="E.g.: We have 2 sales reps doing outbound, but lack a structured lead flow..." placeholder="F.eks.: Vi har 2 selgere som jobber med utgående, men mangler et strukturert leadflow..."></textarea>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
-      </div>
-    </div>
-
-    <!-- STEP 4: Vekstmål -->
-    <div class="step" data-step="4">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          <span data-no="Steg 4 av 9" data-en="Step 4 of 9">Steg 4 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="Vekstmål" data-en="Growth Goals">Vekstmål</h2>
-        <p class="step-desc" data-no="Hva ønsker dere å oppnå de neste 12 månedene?" data-en="What do you want to achieve in the next 12 months?">
-          Hva ønsker dere å oppnå de neste 12 månedene?
-        </p>
-      </div>
-      <div class="field">
-        <label><span data-no="Primære vekstmål" data-en="Primary growth goal">Primære vekstmål</span><span class="req">*</span></label>
-        <div class="options-grid cols-1">
-          <label class="opt-label radio"><input type="radio" name="mal" value="Øke omsetning"/><span class="opt-check"></span><span data-no="Øke omsetning / inntekter" data-en="Increase revenue">Øke omsetning / inntekter</span></label>
-          <label class="opt-label radio"><input type="radio" name="mal" value="Generere flere leads"/><span class="opt-check"></span><span data-no="Generere flere kvalifiserte leads" data-en="Generate more qualified leads">Generere flere kvalifiserte leads</span></label>
-          <label class="opt-label radio"><input type="radio" name="mal" value="Utvide til nye markeder"/><span class="opt-check"></span><span data-no="Utvide til nye markeder / land" data-en="Expand into new markets / countries">Utvide til nye markeder / land</span></label>
-          <label class="opt-label radio"><input type="radio" name="mal" value="Bygge salgsteam"/><span class="opt-check"></span><span data-no="Bygge og skalere salgsteamet" data-en="Build and scale the sales team">Bygge og skalere salgsteamet</span></label>
-          <label class="opt-label radio"><input type="radio" name="mal" value="Øke merkevare"/><span class="opt-check"></span><span data-no="Øke merkevare og markedsposisjon" data-en="Increase brand and market position">Øke merkevare og markedsposisjon</span></label>
-          <label class="opt-label radio"><input type="radio" name="mal" value="Vokse eCommerce"/><span class="opt-check"></span><span data-no="Vokse nettbutikk / eCommerce" data-en="Grow eCommerce / online store">Vokse nettbutikk / eCommerce</span></label>
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label><span data-no="Mål for omsetningsvekst (12 mnd)" data-en="Revenue growth target (12 months)">Mål for omsetningsvekst</span></label>
-          <select id="f-vekstmal">
-            <option value="" disabled selected>—</option>
-            <option data-no="10–25% vekst" data-en="10–25% growth">10–25% vekst</option>
-            <option data-no="25–50% vekst" data-en="25–50% growth">25–50% vekst</option>
-            <option data-no="50–100% vekst" data-en="50–100% growth">50–100% vekst</option>
-            <option data-no="Over 100% vekst" data-en="Over 100% growth">Over 100% vekst</option>
-            <option data-no="Vet ikke ennå" data-en="Not sure yet">Vet ikke ennå</option>
-          </select>
-        </div>
-        <div class="field">
-          <label><span data-no="Ønsket antall nye kunder (12 mnd)" data-en="Target new customers (12 months)">Ønsket antall nye kunder</span></label>
-          <select id="f-kunder">
-            <option value="" disabled selected>—</option>
-            <option>1–10</option>
-            <option>10–25</option>
-            <option>25–50</option>
-            <option>50–100</option>
-            <option>100+</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="Utdyp gjerne målene dine" data-en="Feel free to elaborate on your goals">Utdyp gjerne målene dine</span></label>
-        <textarea id="f-mal-tekst" data-placeholder-no="Beskriv de konkrete ambisjonene og hva suksess ser ut for dere..." data-placeholder-en="Describe your concrete ambitions and what success looks like for you..." placeholder="Beskriv de konkrete ambisjonene og hva suksess ser ut for dere..."></textarea>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
-      </div>
-    </div>
-
-    <!-- STEP 5: Utfordringer -->
-    <div class="step" data-step="5">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span data-no="Steg 5 av 9" data-en="Step 5 of 9">Steg 5 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="Utfordringer" data-en="Challenges">Utfordringer</h2>
-        <p class="step-desc" data-no="Hva er de største hindringene for vekst hos dere i dag?" data-en="What are the biggest obstacles to growth in your business today?">
-          Hva er de største hindringene for vekst hos dere i dag?
-        </p>
-      </div>
-      <div class="field">
-        <label><span data-no="Største vekstutfordringer" data-en="Biggest growth challenges">Største vekstutfordringer</span> <span style="color:var(--muted);font-weight:400" data-no="(velg alle som passer)" data-en="(select all that apply)">(velg alle som passer)</span></label>
-        <div class="options-grid">
-          <label class="opt-label"><input type="checkbox" value="For få leads"/><span class="opt-check"></span><span data-no="For få leads" data-en="Too few leads">For få leads</span></label>
-          <label class="opt-label"><input type="checkbox" value="Lav konvertering"/><span class="opt-check"></span><span data-no="Lav konverteringsrate" data-en="Low conversion rate">Lav konverteringsrate</span></label>
-          <label class="opt-label"><input type="checkbox" value="Mangler salgsprosess"/><span class="opt-check"></span><span data-no="Mangler strukturert salgsprosess" data-en="Lack of structured sales process">Mangler strukturert salgsprosess</span></label>
-          <label class="opt-label"><input type="checkbox" value="Ressurser/kapasitet"/><span class="opt-check"></span><span data-no="Begrensede ressurser / kapasitet" data-en="Limited resources / capacity">Begrensede ressurser</span></label>
-          <label class="opt-label"><input type="checkbox" value="Markedsposisjonering"/><span class="opt-check"></span><span data-no="Svak markedsposisjonering" data-en="Weak market positioning">Svak markedsposisjonering</span></label>
-          <label class="opt-label"><input type="checkbox" value="Teknologi/data"/><span class="opt-check"></span><span data-no="Teknologi og data-innsikt" data-en="Technology and data insights">Teknologi og data-innsikt</span></label>
-          <label class="opt-label"><input type="checkbox" value="Rekruttering"/><span class="opt-check"></span><span data-no="Rekruttering av riktig kompetanse" data-en="Recruiting the right talent">Rekruttering av kompetanse</span></label>
-          <label class="opt-label"><input type="checkbox" value="Internasjonal ekspansjon"/><span class="opt-check"></span><span data-no="Internasjonal ekspansjon" data-en="International expansion">Internasjonal ekspansjon</span></label>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="Beskriv den største utfordringen med egne ord" data-en="Describe your biggest challenge in your own words">Beskriv den største utfordringen med egne ord</span></label>
-        <textarea id="f-utfordring" data-placeholder-no="Hva stopper dere fra å vokse raskere?" data-placeholder-en="What is stopping you from growing faster?" placeholder="Hva stopper dere fra å vokse raskere?"></textarea>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
-      </div>
-    </div>
-
-    <!-- STEP 6: NSG-tjenester -->
-    <div class="step" data-step="6">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          <span data-no="Steg 6 av 9" data-en="Step 6 of 9">Steg 6 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="NSG-tjenester" data-en="NSG Services">NSG-tjenester</h2>
-        <p class="step-desc" data-no="Hvilke av NSGs tjenester er mest relevante for dere? Vi skreddersyr en løsning basert på behovet ditt." data-en="Which of NSG's services are most relevant to you? We tailor a solution based on your needs.">
-          Hvilke av NSGs tjenester er mest relevante for dere?
-        </p>
-      </div>
-      <div class="field">
-        <label><span data-no="Velg relevante tjenester" data-en="Select relevant services">Velg relevante tjenester</span> <span style="color:var(--muted);font-weight:400" data-no="(velg alle som passer)" data-en="(select all that apply)">(velg alle som passer)</span></label>
-        <div class="options-grid cols-1">
-          <label class="opt-label"><input type="checkbox" value="Leadhub"/><span class="opt-check"></span>
-            <div>
-              <strong>Leadhub</strong> — <span style="font-weight:400;color:var(--muted)" data-no="Performance-basert leadgenerering i skala" data-en="Performance-based lead generation at scale">Performance-basert leadgenerering i skala</span>
-            </div>
-          </label>
-          <label class="opt-label"><input type="checkbox" value="Saleshub"/><span class="opt-check"></span>
-            <div>
-              <strong>Saleshub</strong> — <span style="font-weight:400;color:var(--muted)" data-no="Komplette salgsløsninger (inbound, outbound, felt)" data-en="Complete sales solutions (inbound, outbound, field)">Komplette salgsløsninger</span>
-            </div>
-          </label>
-          <label class="opt-label"><input type="checkbox" value="Marketer"/><span class="opt-check"></span>
-            <div>
-              <strong>Marketer</strong> — <span style="font-weight:400;color:var(--muted)" data-no="Senior markedsrådgivning og eksekusjon på bestilling" data-en="Senior marketing advisory and execution on demand">Senior markedsrådgivning on demand</span>
-            </div>
-          </label>
-          <label class="opt-label"><input type="checkbox" value="eCommerce"/><span class="opt-check"></span>
-            <div>
-              <strong>eCommerce</strong> — <span style="font-weight:400;color:var(--muted)" data-no="Vekst og skalering av nettbutikk" data-en="Growth and scaling for online stores">Vekst og skalering av nettbutikk</span>
-            </div>
-          </label>
-          <label class="opt-label"><input type="checkbox" value="Strategy"/><span class="opt-check"></span>
-            <div>
-              <strong>Strategy</strong> — <span style="font-weight:400;color:var(--muted)" data-no="Vekststrategi, posisjonering og ekspansjonsplanlegging" data-en="Growth strategy, positioning and expansion planning">Vekststrategi og posisjonering</span>
-            </div>
-          </label>
-          <label class="opt-label"><input type="checkbox" value="Incubator"/><span class="opt-check"></span>
-            <div>
-              <strong>Incubator</strong> — <span style="font-weight:400;color:var(--muted)" data-no="Akselerasjon for tidligfase selskaper til markedsklarhet" data-en="Accelerating early-stage companies to market readiness">Akselerasjon for tidligfase selskaper</span>
-            </div>
-          </label>
-        </div>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
-      </div>
-    </div>
-
-    <!-- STEP 7: Ressurser & Budsjett -->
-    <div class="step" data-step="7">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          <span data-no="Steg 7 av 9" data-en="Step 7 of 9">Steg 7 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="Ressurser & Budsjett" data-en="Resources & Budget">Ressurser & Budsjett</h2>
-        <p class="step-desc" data-no="Hjelper oss å forstå hva som er tilgjengelig og hva vi kan skalere fra." data-en="Helps us understand what is available and what we can scale from.">
-          Hjelper oss å forstå hva som er tilgjengelig og hva vi kan skalere fra.
-        </p>
-      </div>
-      <div class="field">
-        <label><span data-no="Eksisterende salgs- og markedsteam" data-en="Existing sales and marketing team">Eksisterende salgs- og markedsteam</span></label>
-        <div class="options-grid">
-          <label class="opt-label radio"><input type="radio" name="team" value="Ingen"/><span class="opt-check"></span><span data-no="Ingen dedikert team" data-en="No dedicated team">Ingen dedikert team</span></label>
-          <label class="opt-label radio"><input type="radio" name="team" value="1-2"/><span class="opt-check"></span><span data-no="1–2 personer" data-en="1–2 people">1–2 personer</span></label>
-          <label class="opt-label radio"><input type="radio" name="team" value="3-5"/><span class="opt-check"></span><span data-no="3–5 personer" data-en="3–5 people">3–5 personer</span></label>
-          <label class="opt-label radio"><input type="radio" name="team" value="6+"/><span class="opt-check"></span><span data-no="6+ personer" data-en="6+ people">6+ personer</span></label>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="Månedlig budsjett for vekstaktiviteter" data-en="Monthly budget for growth activities">Månedlig budsjett for vekstaktiviteter</span></label>
-        <select id="f-budsjett">
-          <option value="" disabled selected>—</option>
-          <option data-no="Under 50 000 NOK" data-en="Under €5,000">Under 50 000 NOK</option>
-          <option data-no="50 000–150 000 NOK" data-en="€5,000–€15,000">50 000–150 000 NOK</option>
-          <option data-no="150 000–500 000 NOK" data-en="€15,000–€50,000">150 000–500 000 NOK</option>
-          <option data-no="Over 500 000 NOK" data-en="Over €50,000">Over 500 000 NOK</option>
-          <option data-no="Fleksibelt / avhenger av ROI" data-en="Flexible / depends on ROI">Fleksibelt / avhenger av ROI</option>
-        </select>
-      </div>
-      <div class="field">
-        <label><span data-no="Hvilke teknologier / verktøy bruker dere i dag?" data-en="Which technologies / tools do you use today?">Hvilke teknologier bruker dere i dag?</span></label>
-        <textarea id="f-tech" data-placeholder-no="F.eks.: HubSpot, Google Ads, LinkedIn Sales Navigator, Klaviyo..." data-placeholder-en="E.g.: HubSpot, Google Ads, LinkedIn Sales Navigator, Klaviyo..." placeholder="F.eks.: HubSpot, Google Ads, LinkedIn Sales Navigator, Klaviyo..."></textarea>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
-      </div>
-    </div>
-
-    <!-- STEP 8: Tidslinje & Prioritet -->
-    <div class="step" data-step="8">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span data-no="Steg 8 av 9" data-en="Step 8 of 9">Steg 8 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="Tidslinje & Prioritet" data-en="Timeline & Priority">Tidslinje & Prioritet</h2>
-        <p class="step-desc" data-no="Når ønsker dere å komme i gang, og hva er mest kritisk å løse først?" data-en="When do you want to get started, and what is most critical to solve first?">
-          Når ønsker dere å komme i gang, og hva er mest kritisk å løse først?
-        </p>
-      </div>
-      <div class="field">
-        <label><span data-no="Når ønsker dere å starte?" data-en="When do you want to start?">Når ønsker dere å starte?</span><span class="req">*</span></label>
-        <div class="options-grid">
-          <label class="opt-label radio"><input type="radio" name="start" value="Umiddelbart"/><span class="opt-check"></span><span data-no="Umiddelbart — så fort som mulig" data-en="Immediately — as soon as possible">Umiddelbart</span></label>
-          <label class="opt-label radio"><input type="radio" name="start" value="1-4 uker"/><span class="opt-check"></span><span data-no="Innen 1–4 uker" data-en="Within 1–4 weeks">Innen 1–4 uker</span></label>
-          <label class="opt-label radio"><input type="radio" name="start" value="1-3 måneder"/><span class="opt-check"></span><span data-no="Innen 1–3 måneder" data-en="Within 1–3 months">Innen 1–3 måneder</span></label>
-          <label class="opt-label radio"><input type="radio" name="start" value="Utforsker"/><span class="opt-check"></span><span data-no="Utforsker mulighetene foreløpig" data-en="Exploring options for now">Utforsker mulighetene</span></label>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="Hva haster mest å løse?" data-en="What is most urgent to solve?">Hva haster mest å løse?</span></label>
-        <textarea id="f-haster" data-placeholder-no="Beskriv hva som er mest kritisk å adressere de neste 30–90 dagene..." data-placeholder-en="Describe what is most critical to address in the next 30–90 days..." placeholder="Beskriv hva som er mest kritisk å adressere de neste 30–90 dagene..."></textarea>
-      </div>
-      <div class="field">
-        <label><span data-no="Har dere vurdert andre partnere / byråer?" data-en="Have you considered other partners / agencies?">Har dere vurdert andre partnere?</span></label>
-        <div class="options-grid">
-          <label class="opt-label radio"><input type="radio" name="partnere" value="Ja"/><span class="opt-check"></span><span data-no="Ja" data-en="Yes">Ja</span></label>
-          <label class="opt-label radio"><input type="radio" name="partnere" value="Nei"/><span class="opt-check"></span><span data-no="Nei — NSG er første prioritet" data-en="No — NSG is first priority">Nei — NSG er første prioritet</span></label>
-          <label class="opt-label radio"><input type="radio" name="partnere" value="Evaluerer"/><span class="opt-check"></span><span data-no="Evaluerer flere alternativer" data-en="Evaluating multiple options">Evaluerer flere</span></label>
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-no="Noe annet vi bør vite?" data-en="Anything else we should know?">Noe annet vi bør vite?</span></label>
-        <textarea id="f-annet" data-placeholder-no="Tilleggsinformasjon, spørsmål, eller kontekst som kan hjelpe oss..." data-placeholder-en="Additional information, questions, or context that might help us..." placeholder="Tilleggsinformasjon, spørsmål, eller kontekst som kan hjelpe oss..."></textarea>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next" onclick="nextStep()"><span data-no="Neste: Oppsummering" data-en="Next: Summary">Neste: Oppsummering</span> →</button>
-      </div>
-    </div>
-
-    <!-- STEP 9: Oppsummering & Innsending -->
-    <div class="step" data-step="9">
-      <div class="step-header">
-        <div class="step-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span data-no="Steg 9 av 9" data-en="Step 9 of 9">Steg 9 av 9</span>
-        </div>
-        <h2 class="step-title" data-no="Oppsummering" data-en="Summary">Oppsummering</h2>
-        <p class="step-desc" data-no="Se over svarene dine og send inn skjemaet. NSG-teamet tar kontakt innen 24 timer for å booke en workshop." data-en="Review your answers and submit the form. The NSG team will be in touch within 24 hours to book a workshop.">
-          Se over svarene dine og send inn skjemaet. NSG-teamet tar kontakt innen 24 timer.
-        </p>
-      </div>
-      <div class="summary-card" id="summary-box"></div>
-      <div style="background:var(--blue-m);border:1px solid var(--blue-l);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem;">
-        <p style="font-size:.85rem;color:var(--blue);font-weight:500;" data-no="✓ Dine data behandles konfidensielt og deles kun med NSG-teamet som skal forberede workshopen." data-en="✓ Your data is treated confidentially and shared only with the NSG team preparing the workshop.">
-          ✓ Dine data behandles konfidensielt og deles kun med NSG-teamet som skal forberede workshopen.
-        </p>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep()">← <span data-no="Forrige" data-en="Previous">Forrige</span></button>
-        <button class="btn-next btn-submit" onclick="submitForm()">
-          <span data-no="Send inn og start vekstreisen" data-en="Submit and start the journey">Send inn og start vekstreisen</span> ✓
-        </button>
-      </div>
-    </div>
-
-  </div><!-- /form-shell -->
-
-  <!-- SUCCESS -->
-  <div id="success" style="width:100%;max-width:520px;">
-    <div class="success-icon">
-      <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-    </div>
-    <h2 class="success-title" data-no="Takk! Vi er klare for å skalere." data-en="Thank you! We're ready to scale.">Takk! Vi er klare for å skalere.</h2>
-    <p class="success-desc" data-no="Skjemaet er mottatt. NSG-teamet gjennomgår svarene dine og kontakter deg innen 24 timer for å avtale en første workshop." data-en="Form received. The NSG team will review your answers and contact you within 24 hours to schedule an initial workshop.">
-      Skjemaet er mottatt. NSG-teamet gjennomgår svarene dine og kontakter deg innen 24 timer for å avtale en første workshop.
-    </p>
-    <div class="next-steps">
-      <h3 data-no="Hva skjer nå?" data-en="What happens next?">Hva skjer nå?</h3>
-      <div class="next-step-item"><div class="ns-num">1</div><span data-no="NSG-teamet gjennomgår svarene dine og forbereder skreddersydd analyse" data-en="NSG team reviews your answers and prepares a tailored analysis">NSG-teamet gjennomgår svarene og forbereder skreddersydd analyse</span></div>
-      <div class="next-step-item"><div class="ns-num">2</div><span data-no="Du mottar en kalenderinvitasjon til første workshop innen 24 timer" data-en="You receive a calendar invitation for the first workshop within 24 hours">Du mottar kalenderinvitasjon til workshop innen 24 timer</span></div>
-      <div class="next-step-item"><div class="ns-num">3</div><span data-no="Vi presenterer en konkret vekstplan og neste steg for din bedrift" data-en="We present a concrete growth plan and next steps for your business">Vi presenterer konkret vekstplan og neste steg</span></div>
+    <div class="step-nav">
+      <button class="btn-back" disabled>←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
     </div>
   </div>
 
+  <!-- STEP 2: Om produktet / tjenesten -->
+  <div class="step" data-step="2">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 2 av 9" data-en="Step 2 of 9">Steg 2 av 9</span></div>
+      <h2 class="step-title" data-no="Om produktet ditt" data-en="About your product">Om produktet ditt</h2>
+      <p class="step-desc" data-no="For å skrive overbevisende outreach trenger vi å forstå hva du selger og hva som gjør det unikt." data-en="To write compelling outreach we need to understand what you sell and what makes it unique.">For å skrive overbevisende outreach trenger vi å forstå hva du selger og hva som gjør det unikt.</p>
+    </div>
+    <div class="field">
+      <label><span data-no="Hva selger dere? (kort beskrivelse)" data-en="What do you sell? (brief description)">Hva selger dere?</span><span class="req">*</span></label>
+      <textarea id="f-produkt" data-placeholder-no="F.eks.: Vi tilbyr et AI-drevet CRM-system som automatiserer oppfølging av leads for B2B-selskaper..." data-placeholder-en="E.g.: We offer an AI-powered CRM that automates lead follow-up for B2B companies..." placeholder="F.eks.: Vi tilbyr et AI-drevet CRM-system som automatiserer oppfølging av leads for B2B-selskaper..."></textarea>
+    </div>
+    <div class="field">
+      <label><span data-no="Hva er den største fordelen kunden får?" data-en="What is the biggest benefit the customer gets?">Hva er den største fordelen kunden får?</span><span class="req">*</span></label>
+      <textarea id="f-verdi" data-placeholder-no="F.eks.: Kundene våre sparer i gjennomsnitt 10 timer per uke og øker konverteringsraten med 30%..." data-placeholder-en="E.g.: Our customers save an average of 10 hours per week and increase conversion rates by 30%..." placeholder="F.eks.: Kundene våre sparer i gjennomsnitt 10 timer per uke og øker konverteringsraten med 30%..."></textarea>
+    </div>
+    <div class="field">
+      <label><span data-no="Hva skiller dere fra konkurrentene?" data-en="What sets you apart from competitors?">Hva skiller dere fra konkurrentene?</span></label>
+      <textarea id="f-usp" data-placeholder-no="Nevn 2–3 konkrete ting som gjør dere annerledes..." data-placeholder-en="Mention 2–3 concrete things that make you different..." placeholder="Nevn 2–3 konkrete ting som gjør dere annerledes..."></textarea>
+    </div>
+    <div class="field">
+      <label><span data-no="Nettside" data-en="Website">Nettside</span></label>
+      <input type="url" id="f-nettside" placeholder="https://selskap.no"/>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Målgruppe (ICP) -->
+  <div class="step" data-step="3">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 3 av 9" data-en="Step 3 of 9">Steg 3 av 9</span></div>
+      <h2 class="step-title" data-no="Hvem er din drømmekunde?" data-en="Who is your ideal customer?">Hvem er din drømmekunde?</h2>
+      <p class="step-desc" data-no="Jo mer presist vi vet hvem vi skal nå, jo bedre outreach kan vi skrive." data-en="The more precisely we know who to reach, the better outreach we can write.">Jo mer presist vi vet hvem vi skal nå, jo bedre outreach kan vi skrive.</p>
+    </div>
+    <div class="field">
+      <label><span data-no="Hvilke bransjer selger dere til?" data-en="Which industries do you sell to?">Hvilke bransjer selger dere til?</span><span class="req">*</span></label>
+      <div class="options-grid">
+        <label class="opt-label"><input type="checkbox" value="SaaS / Tech"/><span class="opt-check"></span><span data-no="SaaS / Tech" data-en="SaaS / Tech">SaaS / Tech</span></label>
+        <label class="opt-label"><input type="checkbox" value="Finans"/><span class="opt-check"></span><span data-no="Finans & Forsikring" data-en="Finance & Insurance">Finans & Forsikring</span></label>
+        <label class="opt-label"><input type="checkbox" value="Eiendom"/><span class="opt-check"></span><span data-no="Eiendom & Bygg" data-en="Real Estate & Construction">Eiendom & Bygg</span></label>
+        <label class="opt-label"><input type="checkbox" value="Helse"/><span class="opt-check"></span><span data-no="Helse & Velvære" data-en="Health & Wellness">Helse & Velvære</span></label>
+        <label class="opt-label"><input type="checkbox" value="Industri"/><span class="opt-check"></span><span data-no="Industri & Produksjon" data-en="Industry & Manufacturing">Industri & Produksjon</span></label>
+        <label class="opt-label"><input type="checkbox" value="Retail/ecom"/><span class="opt-check"></span><span data-no="Retail / eCommerce" data-en="Retail / eCommerce">Retail / eCommerce</span></label>
+        <label class="opt-label"><input type="checkbox" value="Konsulent"/><span class="opt-check"></span><span data-no="Konsulentvirksomhet" data-en="Consulting">Konsulentvirksomhet</span></label>
+        <label class="opt-label"><input type="checkbox" value="Alle bransjer"/><span class="opt-check"></span><span data-no="Alle bransjer" data-en="All industries">Alle bransjer</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Hvilke stillingstitler kontakter dere?" data-en="Which job titles do you target?">Hvilke stillingstitler kontakter dere?</span><span class="req">*</span></label>
+      <div class="options-grid">
+        <label class="opt-label"><input type="checkbox" value="CEO/Daglig leder"/><span class="opt-check"></span>CEO / Daglig leder</label>
+        <label class="opt-label"><input type="checkbox" value="Salgssjef"/><span class="opt-check"></span><span data-no="Salgssjef / CCO" data-en="Sales Director / CCO">Salgssjef / CCO</span></label>
+        <label class="opt-label"><input type="checkbox" value="CMO/Markedssjef"/><span class="opt-check"></span>CMO / Markedssjef</label>
+        <label class="opt-label"><input type="checkbox" value="CFO"/><span class="opt-check"></span>CFO / Økonomisjef</label>
+        <label class="opt-label"><input type="checkbox" value="CTO/IT-sjef"/><span class="opt-check"></span>CTO / IT-sjef</label>
+        <label class="opt-label"><input type="checkbox" value="HR-sjef"/><span class="opt-check"></span>HR-sjef / People</label>
+        <label class="opt-label"><input type="checkbox" value="Eier"/><span class="opt-check"></span><span data-no="Eier / Gründer" data-en="Owner / Founder">Eier / Gründer</span></label>
+        <label class="opt-label"><input type="checkbox" value="Innkjøpssjef"/><span class="opt-check"></span><span data-no="Innkjøp / Procurement" data-en="Procurement">Innkjøp / Procurement</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Geografisk fokus" data-en="Geographic focus">Geografisk fokus</span><span class="req">*</span></label>
+      <div class="options-grid cols-3">
+        <label class="opt-label"><input type="checkbox" value="Norge"/><span class="opt-check"></span><span>Norge</span></label>
+        <label class="opt-label"><input type="checkbox" value="Sverige"/><span class="opt-check"></span><span>Sverige</span></label>
+        <label class="opt-label"><input type="checkbox" value="Danmark"/><span class="opt-check"></span><span>Danmark</span></label>
+        <label class="opt-label"><input type="checkbox" value="Finland"/><span class="opt-check"></span><span>Finland</span></label>
+        <label class="opt-label"><input type="checkbox" value="Europa"/><span class="opt-check"></span><span>Europa</span></label>
+        <label class="opt-label"><input type="checkbox" value="Globalt"/><span class="opt-check"></span><span data-no="Globalt" data-en="Global">Globalt</span></label>
+      </div>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Selskapsstørrelse -->
+  <div class="step" data-step="4">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 4 av 9" data-en="Step 4 of 9">Steg 4 av 9</span></div>
+      <h2 class="step-title" data-no="Selskapsstørrelse" data-en="Company size">Selskapsstørrelse</h2>
+      <p class="step-desc" data-no="Hvilke typer selskaper passer best for det dere tilbyr? Dette styrer hvilke leads vi henter inn." data-en="Which types of companies are the best fit for what you offer? This determines which leads we target.">Hvilke typer selskaper passer best for det dere tilbyr? Dette styrer hvilke leads vi henter inn.</p>
+    </div>
+    <div class="field">
+      <label><span data-no="Antall ansatte hos målbedriften" data-en="Number of employees at target company">Antall ansatte hos målbedriften</span><span class="req">*</span></label>
+      <div class="options-grid">
+        <label class="opt-label"><input type="checkbox" value="1-10"/><span class="opt-check"></span><span data-no="1–10 (solopreneur / mikro)" data-en="1–10 (solopreneur / micro)">1–10 ansatte</span></label>
+        <label class="opt-label"><input type="checkbox" value="11-50"/><span class="opt-check"></span><span>11–50 ansatte</span></label>
+        <label class="opt-label"><input type="checkbox" value="51-200"/><span class="opt-check"></span><span>51–200 ansatte</span></label>
+        <label class="opt-label"><input type="checkbox" value="201-500"/><span class="opt-check"></span><span>201–500 ansatte</span></label>
+        <label class="opt-label"><input type="checkbox" value="500+"/><span class="opt-check"></span><span data-no="500+ (enterprise)" data-en="500+ (enterprise)">500+ (enterprise)</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Omsetning hos målbedriften" data-en="Revenue at target company">Omsetning hos målbedriften</span></label>
+      <div class="options-grid">
+        <label class="opt-label"><input type="checkbox" value="Under 10 MNOK"/><span class="opt-check"></span><span data-no="Under 10 MNOK" data-en="Under €1M">Under 10 MNOK</span></label>
+        <label class="opt-label"><input type="checkbox" value="10-50 MNOK"/><span class="opt-check"></span><span data-no="10–50 MNOK" data-en="€1M–€5M">10–50 MNOK</span></label>
+        <label class="opt-label"><input type="checkbox" value="50-200 MNOK"/><span class="opt-check"></span><span data-no="50–200 MNOK" data-en="€5M–€20M">50–200 MNOK</span></label>
+        <label class="opt-label"><input type="checkbox" value="200+ MNOK"/><span class="opt-check"></span><span data-no="200+ MNOK" data-en="€20M+">200+ MNOK</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Er det andre kriterier som kvalifiserer en god kunde?" data-en="Are there other criteria that qualify a good customer?">Andre kvalifikasjonskriterier?</span></label>
+      <textarea id="f-kriterier" data-placeholder-no="F.eks.: Må bruke Salesforce, må ha et salgsteam på minst 5 personer, må selge til enterprise..." data-placeholder-en="E.g.: Must use Salesforce, must have a sales team of at least 5 people, must sell to enterprise..." placeholder="F.eks.: Må bruke Salesforce, må ha et salgsteam på minst 5 personer, må selge til enterprise..."></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: Dagens problemer -->
+  <div class="step" data-step="5">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 5 av 9" data-en="Step 5 of 9">Steg 5 av 9</span></div>
+      <h2 class="step-title" data-no="Kundens problemer" data-en="Customer pain points">Kundens problemer</h2>
+      <p class="step-desc" data-no="God outreach treffer alltid et konkret problem. Hva sliter målgruppen din med i dag?" data-en="Good outreach always addresses a concrete problem. What does your target audience struggle with today?">God outreach treffer alltid et konkret problem. Hva sliter målgruppen din med i dag?</p>
+    </div>
+    <div class="field">
+      <label><span data-no="Hvilke problemer løser dere for kundene?" data-en="What problems do you solve for customers?">Hvilke problemer løser dere for kundene?</span><span class="req">*</span></label>
+      <div class="options-grid cols-1">
+        <label class="opt-label"><input type="checkbox" value="For få leads"/><span class="opt-check"></span><span data-no="For få kvalifiserte leads / pipeline" data-en="Too few qualified leads / pipeline">For få kvalifiserte leads / pipeline</span></label>
+        <label class="opt-label"><input type="checkbox" value="Manuelt arbeid"/><span class="opt-check"></span><span data-no="For mye manuelt og tidkrevende arbeid" data-en="Too much manual and time-consuming work">For mye manuelt og tidkrevende arbeid</span></label>
+        <label class="opt-label"><input type="checkbox" value="Lav konvertering"/><span class="opt-check"></span><span data-no="Lav konverteringsrate fra lead til kunde" data-en="Low conversion rate from lead to customer">Lav konverteringsrate fra lead til kunde</span></label>
+        <label class="opt-label"><input type="checkbox" value="Høye kostnader"/><span class="opt-check"></span><span data-no="For høye kostnader per kunde (CAC)" data-en="Too high cost per customer (CAC)">For høye kostnader per kunde (CAC)</span></label>
+        <label class="opt-label"><input type="checkbox" value="Skalering"/><span class="opt-check"></span><span data-no="Vanskelig å skalere salg og outreach" data-en="Difficult to scale sales and outreach">Vanskelig å skalere salg og outreach</span></label>
+        <label class="opt-label"><input type="checkbox" value="Feil målgruppe"/><span class="opt-check"></span><span data-no="Treffer feil mennesker / lav relevans" data-en="Reaching wrong people / low relevance">Treffer feil mennesker / lav relevans</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Beskriv kundens største problem med egne ord" data-en="Describe the customer's biggest problem in your own words">Beskriv kundens største problem med egne ord</span></label>
+      <textarea id="f-problem" data-placeholder-no="Hva er det som virkelig gjør vondt for målgruppen din — det de er villige til å betale for å løse?" data-placeholder-en="What really hurts your target audience — the thing they're willing to pay to solve?" placeholder="Hva er det som virkelig gjør vondt for målgruppen din — det de er villige til å betale for å løse?"></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
+    </div>
+  </div>
+
+  <!-- STEP 6: Outreach-metoder -->
+  <div class="step" data-step="6">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 6 av 9" data-en="Step 6 of 9">Steg 6 av 9</span></div>
+      <h2 class="step-title" data-no="Outreach-metoder" data-en="Outreach methods">Outreach-metoder</h2>
+      <p class="step-desc" data-no="Hvilke kanaler og metoder ønsker dere å bruke for å nå ut til potensielle kunder?" data-en="Which channels and methods do you want to use to reach potential customers?">Hvilke kanaler og metoder ønsker dere å bruke for å nå ut til potensielle kunder?</p>
+    </div>
+    <div class="field">
+      <label><span data-no="Hvilke outreach-kanaler vil dere bruke?" data-en="Which outreach channels do you want to use?">Hvilke outreach-kanaler vil dere bruke?</span><span class="req">*</span></label>
+      <div class="options-grid">
+        <label class="opt-label"><input type="checkbox" value="Cold email"/><span class="opt-check"></span><span data-no="Cold e-post" data-en="Cold email">Cold e-post</span></label>
+        <label class="opt-label"><input type="checkbox" value="LinkedIn"/><span class="opt-check"></span><span>LinkedIn outreach</span></label>
+        <label class="opt-label"><input type="checkbox" value="Cold calling"/><span class="opt-check"></span><span data-no="Cold calling" data-en="Cold calling">Cold calling</span></label>
+        <label class="opt-label"><input type="checkbox" value="SMS"/><span class="opt-check"></span><span data-no="SMS / WhatsApp" data-en="SMS / WhatsApp">SMS / WhatsApp</span></label>
+        <label class="opt-label"><input type="checkbox" value="Multichannel"/><span class="opt-check"></span><span data-no="Multikanal (kombinasjon)" data-en="Multichannel (combination)">Multikanal</span></label>
+        <label class="opt-label"><input type="checkbox" value="AI-automatisert"/><span class="opt-check"></span><span data-no="AI-automatisert outreach" data-en="AI-automated outreach">AI-automatisert outreach</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Bruker dere outreach-verktøy i dag?" data-en="Are you using outreach tools today?">Bruker dere outreach-verktøy i dag?</span></label>
+      <div class="options-grid">
+        <label class="opt-label"><input type="checkbox" value="Instantly"/><span class="opt-check"></span><span>Instantly</span></label>
+        <label class="opt-label"><input type="checkbox" value="Lemlist"/><span class="opt-check"></span><span>Lemlist</span></label>
+        <label class="opt-label"><input type="checkbox" value="Apollo"/><span class="opt-check"></span><span>Apollo</span></label>
+        <label class="opt-label"><input type="checkbox" value="LinkedIn Sales Nav"/><span class="opt-check"></span><span>LinkedIn Sales Navigator</span></label>
+        <label class="opt-label"><input type="checkbox" value="HubSpot"/><span class="opt-check"></span><span>HubSpot</span></label>
+        <label class="opt-label"><input type="checkbox" value="Ingen verktøy"/><span class="opt-check"></span><span data-no="Ingen outreach-verktøy ennå" data-en="No outreach tools yet">Ingen ennå</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Hva har dere prøvd av outreach tidligere, og hva fungerte / fungerte ikke?" data-en="What outreach have you tried before, and what worked / didn't work?">Hva har dere prøvd tidligere?</span></label>
+      <textarea id="f-tidligere" data-placeholder-no="Beskriv tidligere erfaringer med outreach — hva fikk dere respons på, hva bommet?" data-placeholder-en="Describe previous outreach experiences — what got responses, what missed the mark?" placeholder="Beskriv tidligere erfaringer med outreach — hva fikk dere respons på, hva bommet?"></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
+    </div>
+  </div>
+
+  <!-- STEP 7: Copywriting-stil -->
+  <div class="step" data-step="7">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 7 av 9" data-en="Step 7 of 9">Steg 7 av 9</span></div>
+      <h2 class="step-title" data-no="Copywriting-stil" data-en="Copywriting style">Copywriting-stil</h2>
+      <p class="step-desc" data-no="Vi skreddersyr tekstene til din merkevare og målgruppe. Hva er riktig tone og stil for dere?" data-en="We tailor the copy to your brand and audience. What is the right tone and style for you?">Vi skreddersyr tekstene til din merkevare og målgruppe. Hva er riktig tone og stil for dere?</p>
+    </div>
+    <div class="field">
+      <label><span data-no="Tone of voice" data-en="Tone of voice">Tone of voice</span><span class="req">*</span></label>
+      <div class="options-grid">
+        <label class="opt-label radio"><input type="radio" name="tone" value="Profesjonell og formell"/><span class="opt-check"></span><span data-no="Profesjonell og formell" data-en="Professional and formal">Profesjonell og formell</span></label>
+        <label class="opt-label radio"><input type="radio" name="tone" value="Vennlig og uformell"/><span class="opt-check"></span><span data-no="Vennlig og uformell" data-en="Friendly and informal">Vennlig og uformell</span></label>
+        <label class="opt-label radio"><input type="radio" name="tone" value="Direkte og konsis"/><span class="opt-check"></span><span data-no="Direkte og konsist — rett på sak" data-en="Direct and concise — straight to the point">Direkte og konsist</span></label>
+        <label class="opt-label radio"><input type="radio" name="tone" value="Historiefortelling"/><span class="opt-check"></span><span data-no="Storytelling og emosjonell appell" data-en="Storytelling and emotional appeal">Storytelling og emosjonell</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Lengde på outreach-meldinger" data-en="Length of outreach messages">Lengde på outreach-meldinger</span></label>
+      <div class="options-grid cols-3">
+        <label class="opt-label radio"><input type="radio" name="lengde" value="Kort"/><span class="opt-check"></span><span data-no="Kort (under 5 linjer)" data-en="Short (under 5 lines)">Kort</span></label>
+        <label class="opt-label radio"><input type="radio" name="lengde" value="Medium"/><span class="opt-check"></span><span data-no="Medium (5–10 linjer)" data-en="Medium (5–10 lines)">Medium</span></label>
+        <label class="opt-label radio"><input type="radio" name="lengde" value="Lang"/><span class="opt-check"></span><span data-no="Lang (10+ linjer med kontekst)" data-en="Long (10+ lines with context)">Lang</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Hva skal CTA-en (call-to-action) be om?" data-en="What should the CTA (call-to-action) ask for?">Hva skal CTA-en be om?</span></label>
+      <div class="options-grid">
+        <label class="opt-label radio"><input type="radio" name="cta" value="Book et møte"/><span class="opt-check"></span><span data-no="Book et møte / demo" data-en="Book a meeting / demo">Book et møte / demo</span></label>
+        <label class="opt-label radio"><input type="radio" name="cta" value="Kort samtale"/><span class="opt-check"></span><span data-no="En kort samtale (15 min)" data-en="A quick call (15 min)">En kort samtale (15 min)</span></label>
+        <label class="opt-label radio"><input type="radio" name="cta" value="Interesse / svar"/><span class="opt-check"></span><span data-no="Enkel respons — er dette relevant?" data-en="Simple reply — is this relevant?">Enkel respons</span></label>
+        <label class="opt-label radio"><input type="radio" name="cta" value="Last ned / prøv"/><span class="opt-check"></span><span data-no="Last ned ressurs / start gratis prøve" data-en="Download resource / start free trial">Last ned / prøv gratis</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Er det emner, ord eller formuleringer vi skal unngå?" data-en="Are there topics, words or phrases we should avoid?">Ting vi skal unngå i tekstene?</span></label>
+      <textarea id="f-unngaa" data-placeholder-no="F.eks.: Unngå aggressive salgspitch, ikke nevn konkurrenter ved navn, alltid skriv på norsk..." data-placeholder-en="E.g.: Avoid aggressive sales pitches, don't name competitors, always write in Norwegian..." placeholder="F.eks.: Unngå aggressive salgspitch, ikke nevn konkurrenter ved navn, alltid skriv på norsk..."></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste" data-en="Next">Neste</span> →</button>
+    </div>
+  </div>
+
+  <!-- STEP 8: Mål & KPIer -->
+  <div class="step" data-step="8">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 8 av 9" data-en="Step 8 of 9">Steg 8 av 9</span></div>
+      <h2 class="step-title" data-no="Mål & forventninger" data-en="Goals & expectations">Mål & forventninger</h2>
+      <p class="step-desc" data-no="Hva er suksess for dere? Jo klarere mål, jo bedre kan vi måle og optimalisere kampanjen." data-en="What does success look like for you? The clearer the goals, the better we can measure and optimize.">Hva er suksess for dere? Jo klarere mål, jo bedre kan vi måle og optimalisere kampanjen.</p>
+    </div>
+    <div class="field">
+      <label><span data-no="Primært mål med outreach-kampanjen" data-en="Primary goal of the outreach campaign">Primært mål</span><span class="req">*</span></label>
+      <div class="options-grid cols-1">
+        <label class="opt-label radio"><input type="radio" name="primaermal" value="Booke salgsmøter"/><span class="opt-check"></span><span data-no="Booke salgsmøter / demos" data-en="Book sales meetings / demos">Booke salgsmøter / demos</span></label>
+        <label class="opt-label radio"><input type="radio" name="primaermal" value="Generere inbound interesse"/><span class="opt-check"></span><span data-no="Generere inbound interesse og leads" data-en="Generate inbound interest and leads">Generere inbound interesse og leads</span></label>
+        <label class="opt-label radio"><input type="radio" name="primaermal" value="Partnerskap"/><span class="opt-check"></span><span data-no="Bygge partnerskap og samarbeid" data-en="Build partnerships and collaborations">Bygge partnerskap og samarbeid</span></label>
+        <label class="opt-label radio"><input type="radio" name="primaermal" value="Rekruttering"/><span class="opt-check"></span><span data-no="Rekruttering av talenter" data-en="Recruiting talent">Rekruttering av talenter</span></label>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label><span data-no="Ønsket antall møter per måned" data-en="Desired meetings per month">Ønsket antall møter / mnd</span></label>
+        <select id="f-moeter">
+          <option value="" disabled selected>—</option>
+          <option>1–5</option>
+          <option>5–10</option>
+          <option>10–20</option>
+          <option>20–50</option>
+          <option>50+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label><span data-no="Når ønsker dere å starte?" data-en="When do you want to start?">Når ønsker dere å starte?</span></label>
+        <select id="f-start">
+          <option value="" disabled selected>—</option>
+          <option data-no="Umiddelbart" data-en="Immediately">Umiddelbart</option>
+          <option data-no="Innen 2 uker" data-en="Within 2 weeks">Innen 2 uker</option>
+          <option data-no="Innen 1 måned" data-en="Within 1 month">Innen 1 måned</option>
+          <option data-no="Innen 3 måneder" data-en="Within 3 months">Innen 3 måneder</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label><span data-no="Månedlig budsjett for outreach" data-en="Monthly budget for outreach">Månedlig budsjett</span></label>
+      <select id="f-budsjett">
+        <option value="" disabled selected>—</option>
+        <option data-no="Under 10 000 NOK" data-en="Under €1,000">Under 10 000 NOK</option>
+        <option data-no="10 000–30 000 NOK" data-en="€1,000–€3,000">10 000–30 000 NOK</option>
+        <option data-no="30 000–80 000 NOK" data-en="€3,000–€8,000">30 000–80 000 NOK</option>
+        <option data-no="Over 80 000 NOK" data-en="Over €8,000">Over 80 000 NOK</option>
+        <option data-no="Fleksibelt / avhenger av ROI" data-en="Flexible / depends on ROI">Fleksibelt / avhenger av ROI</option>
+      </select>
+    </div>
+    <div class="field">
+      <label><span data-no="Noe annet vi bør vite?" data-en="Anything else we should know?">Noe annet vi bør vite?</span></label>
+      <textarea id="f-annet" data-placeholder-no="Tidligere resultater, spesielle ønsker, eksisterende avtaler, sesonger vi bør ta hensyn til..." data-placeholder-en="Previous results, special requests, existing agreements, seasons to consider..." placeholder="Tidligere resultater, spesielle ønsker, eksisterende avtaler, sesonger vi bør ta hensyn til..."></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next" onclick="nextStep()"><span data-no="Neste: Oppsummering" data-en="Next: Summary">Neste: Oppsummering</span> →</button>
+    </div>
+  </div>
+
+  <!-- STEP 9: Oppsummering & Innsending -->
+  <div class="step" data-step="9">
+    <div class="step-header">
+      <div class="step-badge"><span data-no="Steg 9 av 9" data-en="Step 9 of 9">Steg 9 av 9</span></div>
+      <h2 class="step-title" data-no="Oppsummering" data-en="Summary">Oppsummering</h2>
+      <p class="step-desc" data-no="Se over svarene dine og send inn. NSG-teamet tar kontakt innen 24 timer for å booke workshop og sette opp kampanjen." data-en="Review your answers and submit. The NSG team will contact you within 24 hours to book a workshop and set up the campaign.">Se over svarene dine og send inn. NSG-teamet tar kontakt innen 24 timer.</p>
+    </div>
+    <div class="summary-card" id="summary-box"></div>
+    <div style="background:var(--blue-m);border:1px solid var(--blue-l);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem;">
+      <p style="font-size:.85rem;color:var(--blue);font-weight:500;" data-no="✓ Dine svar behandles konfidensielt og brukes kun til å forberede outreach-strategien din." data-en="✓ Your answers are treated confidentially and used only to prepare your outreach strategy.">✓ Dine svar behandles konfidensielt og brukes kun til å forberede outreach-strategien din.</p>
+    </div>
+    <div class="step-nav">
+      <button class="btn-back" onclick="prevStep()">←</button>
+      <button class="btn-next btn-submit" onclick="submitForm()"><span data-no="Send inn og kom i gang" data-en="Submit and get started">Send inn og kom i gang</span> ✓</button>
+    </div>
+  </div>
+
+</div><!-- /form-shell -->
+
+<!-- SUCCESS -->
+<div id="success" style="width:100%;max-width:520px;">
+  <div class="success-icon">
+    <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h2 class="success-title" data-no="Vi er klare for å skalere!" data-en="We're ready to scale!">Vi er klare for å skalere!</h2>
+  <p class="success-desc" data-no="Skjemaet er mottatt. NSG-teamet gjennomgår svarene dine og kontakter deg innen 24 timer for å booke workshop og sette opp outreach-kampanjen." data-en="Form received. The NSG team will review your answers and contact you within 24 hours to book a workshop and set up the outreach campaign.">Skjemaet er mottatt. NSG-teamet gjennomgår svarene og kontakter deg innen 24 timer.</p>
+  <div class="next-steps">
+    <h3 data-no="Hva skjer nå?" data-en="What happens next?">Hva skjer nå?</h3>
+    <div class="next-step-item"><div class="ns-num">1</div><span data-no="NSG analyserer svarene og forbereder outreach-strategi og copywriting" data-en="NSG analyzes responses and prepares outreach strategy and copywriting">NSG analyserer svarene og forbereder strategi og copywriting</span></div>
+    <div class="next-step-item"><div class="ns-num">2</div><span data-no="Du mottar kalenderinvitasjon til workshop innen 24 timer" data-en="You receive a calendar invitation for a workshop within 24 hours">Du mottar kalenderinvitasjon til workshop innen 24 timer</span></div>
+    <div class="next-step-item"><div class="ns-num">3</div><span data-no="Vi setter opp kampanjen og starter outreach mot din målgruppe" data-en="We set up the campaign and start outreach to your target audience">Vi setter opp kampanjen og starter outreach mot din målgruppe</span></div>
+  </div>
+</div>
 </main>
 
 <footer>
@@ -966,34 +536,23 @@
   let currentStep = 1;
   const TOTAL = 9;
   let lang = 'no';
-  let goingBack = false;
 
-  // ── LANGUAGE ──
   function setLang(l) {
     lang = l;
     document.getElementById('btn-no').classList.toggle('active', l === 'no');
     document.getElementById('btn-en').classList.toggle('active', l === 'en');
     document.documentElement.lang = l === 'no' ? 'no' : 'en';
-    document.querySelectorAll('[data-no][data-en]').forEach(el => {
-      el.textContent = el.dataset[l];
-    });
-    document.querySelectorAll('[data-placeholder-no][data-placeholder-en]').forEach(el => {
-      el.placeholder = l === 'no' ? el.dataset.placeholderNo : el.dataset.placeholderEn;
-    });
-    // Translate select options
-    document.querySelectorAll('option[data-no][data-en]').forEach(opt => {
-      opt.textContent = opt.dataset[l];
-    });
+    document.querySelectorAll('[data-no][data-en]').forEach(el => { el.textContent = el.dataset[l]; });
+    document.querySelectorAll('[data-placeholder-no]').forEach(el => { el.placeholder = l === 'no' ? el.dataset.placeholderNo : el.dataset.placeholderEn; });
+    document.querySelectorAll('option[data-no][data-en]').forEach(opt => { opt.textContent = opt.dataset[l]; });
+    updateProgress();
   }
 
-  // ── PROGRESS ──
   function updateProgress() {
     const pct = Math.round((currentStep / TOTAL) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
     document.getElementById('progress-pct').textContent = pct + '%';
-    const lbl = document.getElementById('progress-label');
-    lbl.textContent = lang === 'no' ? `Steg ${currentStep} av ${TOTAL}` : `Step ${currentStep} of ${TOTAL}`;
-
+    document.getElementById('progress-label').textContent = lang === 'no' ? `Steg ${currentStep} av ${TOTAL}` : `Step ${currentStep} of ${TOTAL}`;
     const dots = document.getElementById('step-dots');
     dots.innerHTML = '';
     for (let i = 1; i <= TOTAL; i++) {
@@ -1003,11 +562,8 @@
     }
   }
 
-  // ── NAVIGATION ──
   function showStep(n, back = false) {
-    document.querySelectorAll('.step').forEach(s => {
-      s.classList.remove('active', 'step-back');
-    });
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active','step-back'));
     const el = document.querySelector(`.step[data-step="${n}"]`);
     if (back) el.classList.add('step-back');
     el.classList.add('active');
@@ -1016,70 +572,71 @@
     if (n === 9) buildSummary();
   }
 
-  function nextStep() {
-    if (currentStep < TOTAL) { currentStep++; showStep(currentStep); }
-  }
-  function prevStep() {
-    if (currentStep > 1) { currentStep--; showStep(currentStep, true); }
-  }
+  function nextStep() { if (currentStep < TOTAL) { currentStep++; showStep(currentStep); } }
+  function prevStep() { if (currentStep > 1) { currentStep--; showStep(currentStep, true); } }
 
-  // ── SUMMARY ──
+  function getChecked(step, name) {
+    return [...document.querySelectorAll(`.step[data-step="${step}"] input[type=checkbox]:checked, input[name="${name}"]:checked`)].map(i => i.value).join(', ');
+  }
+  function getRadio(name) { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : ''; }
+  function getVal(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+
   function buildSummary() {
-    const get = id => { const el = document.getElementById(id); return el ? el.value : ''; };
-    const checked = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value).join(', ');
-    const boxes = group => [...document.querySelectorAll(`.step[data-step="${group}"] input[type=checkbox]:checked`)].map(i => i.value).join(', ');
-
     const rows = [
-      [lang==='no'?'Navn':'Name', `${get('f-fornavn')} ${get('f-etternavn')}`],
-      [lang==='no'?'E-post':'Email', get('f-epost')],
-      [lang==='no'?'Telefon':'Phone', get('f-telefon')],
-      [lang==='no'?'Selskap':'Company', get('f-selskap')],
-      [lang==='no'?'Rolle':'Role', get('f-rolle')],
-      [lang==='no'?'Bransje':'Industry', get('f-bransje')],
-      [lang==='no'?'Ansatte':'Employees', get('f-ansatte')],
-      [lang==='no'?'Marked':'Market', checked('marked')],
-      [lang==='no'?'Primærmål':'Primary goal', checked('mal')],
-      [lang==='no'?'Budsjett':'Budget', get('f-budsjett')],
-      [lang==='no'?'NSG-tjenester':'NSG services', [...document.querySelectorAll('.step[data-step="6"] input[type=checkbox]:checked')].map(i=>i.value).join(', ')],
-      [lang==='no'?'Oppstartspunkt':'Start', checked('start')],
+      [lang==='no'?'Navn':'Name', `${getVal('f-fornavn')} ${getVal('f-etternavn')}`],
+      [lang==='no'?'Selskap':'Company', getVal('f-selskap')],
+      [lang==='no'?'E-post':'Email', getVal('f-epost')],
+      [lang==='no'?'Rolle':'Role', getVal('f-rolle')],
+      [lang==='no'?'Nettside':'Website', getVal('f-nettside')],
+      [lang==='no'?'Produkt/tjeneste':'Product/service', getVal('f-produkt')],
+      [lang==='no'?'Målbransjer':'Target industries', getChecked(3,'')],
+      [lang==='no'?'Stillingstitler':'Job titles', getChecked(3,'')],
+      [lang==='no'?'Selskapsstørrelse':'Company size', getChecked(4,'')],
+      [lang==='no'?'Tone of voice':'Tone of voice', getRadio('tone')],
+      [lang==='no'?'CTA':'CTA', getRadio('cta')],
+      [lang==='no'?'Primærmål':'Primary goal', getRadio('primaermal')],
+      [lang==='no'?'Møter/mnd':'Meetings/month', getVal('f-moeter')],
+      [lang==='no'?'Oppstart':'Start', getVal('f-start')],
+      [lang==='no'?'Budsjett':'Budget', getVal('f-budsjett')],
     ];
-
-    document.getElementById('summary-box').innerHTML = rows.filter(r => r[1])
-      .map(r => `<div class="summary-row"><span class="summary-key">${r[0]}</span><span class="summary-val">${r[1]}</span></div>`)
-      .join('');
+    document.getElementById('summary-box').innerHTML = rows.filter(r=>r[1]&&r[1].trim())
+      .map(r=>`<div class="summary-row"><span class="summary-key">${r[0]}</span><span class="summary-val">${r[1]}</span></div>`).join('');
   }
 
-  // ── SUBMIT ──
   function submitForm() {
-    const get = id => { const el = document.getElementById(id); return el ? el.value : ''; };
-    const checked = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value).join(', ');
+    const checked = (step) => [...document.querySelectorAll(`.step[data-step="${step}"] input[type=checkbox]:checked`)].map(i=>i.value).join(', ');
 
     const data = {
-      fornavn: get('f-fornavn'),
-      etternavn: get('f-etternavn'),
-      epost: get('f-epost'),
-      telefon: get('f-telefon'),
-      selskap: get('f-selskap'),
-      rolle: get('f-rolle'),
-      bransje: get('f-bransje'),
-      ansatte: get('f-ansatte'),
-      omsetning: get('f-omsetning'),
-      marked: checked('marked'),
-      crm: get('f-crm'),
-      situasjon: get('f-situasjon'),
-      mal: checked('mal'),
-      vekstmal: get('f-vekstmal'),
-      malTekst: get('f-mal-tekst'),
-      utfordring: get('f-utfordring'),
-      tjenester: [...document.querySelectorAll('.step[data-step="6"] input[type=checkbox]:checked')].map(i=>i.value).join(', '),
-      team: checked('team'),
-      budsjett: get('f-budsjett'),
-      tech: get('f-tech'),
-      start: checked('start'),
-      haster: get('f-haster'),
-      partnere: checked('partnere'),
-      annet: get('f-annet'),
-      sprak: lang
+      Navn: `${getVal('f-fornavn')} ${getVal('f-etternavn')}`,
+      Selskap: getVal('f-selskap'),
+      Epost: getVal('f-epost'),
+      Telefon: getVal('f-telefon'),
+      Rolle: getVal('f-rolle'),
+      Nettside: getVal('f-nettside'),
+      Produkt: getVal('f-produkt'),
+      Verdiforslag: getVal('f-verdi'),
+      USP: getVal('f-usp'),
+      Målbransjer: checked(3),
+      Stillingstitler: checked(3),
+      Geografi: checked(3),
+      Selskapsstørrelse: checked(4),
+      Omsetning_mål: checked(4),
+      Kvalifikasjonskriterier: getVal('f-kriterier'),
+      Kundeproblemer: checked(5),
+      Problem_beskrivelse: getVal('f-problem'),
+      Outreach_kanaler: checked(6),
+      Outreach_verktøy: checked(6),
+      Tidligere_outreach: getVal('f-tidligere'),
+      Tone_of_voice: getRadio('tone'),
+      Meldingslengde: getRadio('lengde'),
+      CTA: getRadio('cta'),
+      Unngå: getVal('f-unngaa'),
+      Primærmål: getRadio('primaermal'),
+      Møter_per_måned: getVal('f-moeter'),
+      Oppstart: getVal('f-start'),
+      Budsjett: getVal('f-budsjett'),
+      Tillegg: getVal('f-annet'),
+      Språk: lang
     };
 
     fetch('https://formsubmit.co/ajax/ari@opticontrol.ai', {
@@ -1087,23 +644,19 @@
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
         ...data,
-        _subject: `NSG Onboarding — ${data.selskap}`,
+        _subject: `NSG Onboarding — ${data.Selskap}`,
         _cc: 'kk@nsgroup.ai',
         _template: 'table'
       })
-    }).then(r => r.json())
-      .then(() => showSuccess())
-      .catch(() => showSuccess());
+    }).then(r=>r.json()).then(()=>showSuccess()).catch(()=>showSuccess());
   }
 
   function showSuccess() {
     document.getElementById('form-shell').style.display = 'none';
-    const s = document.getElementById('success');
-    s.style.display = 'block';
+    document.getElementById('success').style.display = 'block';
     setLang(lang);
   }
 
-  // Init
   updateProgress();
   setLang('no');
 </script>
