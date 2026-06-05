@@ -357,42 +357,48 @@
     </div>
   </div>
 
-  <!-- STEP 7: Copywriting-stil -->
+  <!-- STEP 7: Bevis & posisjonering -->
   <div class="step" data-step="7">
     <div class="step-header">
       <div class="step-badge"><span data-no="Steg 7 av 9" data-en="Step 7 of 9">Steg 7 av 9</span></div>
-      <h2 class="step-title" data-no="Copywriting-stil" data-en="Copywriting style">Copywriting-stil</h2>
-      <p class="step-desc" data-no="Vi skreddersyr tekstene til din merkevare og målgruppe. Hva er riktig tone og stil for dere?" data-en="We tailor the copy to your brand and audience. What is the right tone and style for you?">Vi skreddersyr tekstene til din merkevare og målgruppe. Hva er riktig tone og stil for dere?</p>
+      <h2 class="step-title" data-no="Bevis & posisjonering" data-en="Proof & positioning">Bevis & posisjonering</h2>
+      <p class="step-desc" data-no="Her er du eksperten — vi trenger å forstå resultatene dere har levert og hvem dere konkurrerer med for å posisjonere dere riktig i outreach." data-en="Here you are the expert — we need to understand the results you've delivered and who you compete with to position you correctly in outreach.">Her er du eksperten — vi trenger å forstå resultatene dere har levert og hvem dere konkurrerer med.</p>
     </div>
     <div class="field">
-      <label><span data-no="Tone of voice" data-en="Tone of voice">Tone of voice</span><span class="req">*</span></label>
-      <div class="options-grid">
-        <label class="opt-label radio"><input type="radio" name="tone" value="Profesjonell og formell"/><span class="opt-check"></span><span data-no="Profesjonell og formell" data-en="Professional and formal">Profesjonell og formell</span></label>
-        <label class="opt-label radio"><input type="radio" name="tone" value="Vennlig og uformell"/><span class="opt-check"></span><span data-no="Vennlig og uformell" data-en="Friendly and informal">Vennlig og uformell</span></label>
-        <label class="opt-label radio"><input type="radio" name="tone" value="Direkte og konsis"/><span class="opt-check"></span><span data-no="Direkte og konsist — rett på sak" data-en="Direct and concise — straight to the point">Direkte og konsist</span></label>
-        <label class="opt-label radio"><input type="radio" name="tone" value="Historiefortelling"/><span class="opt-check"></span><span data-no="Storytelling og emosjonell appell" data-en="Storytelling and emotional appeal">Storytelling og emosjonell</span></label>
+      <label><span data-no="Eksisterende kunder og referanser" data-en="Existing customers and references">Eksisterende kunder og referanser</span><span class="req">*</span></label>
+      <textarea id="f-referanser" data-placeholder-no="Nevn gjerne noen av kundene dere allerede har, og hvilke resultater dere har levert dem. F.eks.: Vi hjalp Selskap X med å øke salget 40% på 3 måneder..." data-placeholder-en="Mention some of your existing customers and the results you've delivered. E.g.: We helped Company X increase sales by 40% in 3 months..." placeholder="Nevn gjerne noen av kundene dere allerede har, og hvilke resultater dere har levert dem. F.eks.: Vi hjalp Selskap X med å øke salget 40% på 3 måneder..."></textarea>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label><span data-no="Gjennomsnittlig kontraktverdi (ACV)" data-en="Average contract value (ACV)">Gjennomsnittlig kontraktverdi</span></label>
+        <select id="f-acv">
+          <option value="" disabled selected>—</option>
+          <option data-no="Under 10 000 NOK" data-en="Under €1,000">Under 10 000 NOK</option>
+          <option data-no="10 000–50 000 NOK" data-en="€1,000–€5,000">10 000–50 000 NOK</option>
+          <option data-no="50 000–200 000 NOK" data-en="€5,000–€20,000">50 000–200 000 NOK</option>
+          <option data-no="200 000–500 000 NOK" data-en="€20,000–€50,000">200 000–500 000 NOK</option>
+          <option data-no="Over 500 000 NOK" data-en="Over €50,000">Over 500 000 NOK</option>
+        </select>
+      </div>
+      <div class="field">
+        <label><span data-no="Typisk salgssyklus" data-en="Typical sales cycle">Typisk salgssyklus</span></label>
+        <select id="f-salgssyklus">
+          <option value="" disabled selected>—</option>
+          <option data-no="Under 1 uke" data-en="Under 1 week">Under 1 uke</option>
+          <option data-no="1–4 uker" data-en="1–4 weeks">1–4 uker</option>
+          <option data-no="1–3 måneder" data-en="1–3 months">1–3 måneder</option>
+          <option data-no="3–6 måneder" data-en="3–6 months">3–6 måneder</option>
+          <option data-no="Over 6 måneder" data-en="Over 6 months">Over 6 måneder</option>
+        </select>
       </div>
     </div>
     <div class="field">
-      <label><span data-no="Lengde på outreach-meldinger" data-en="Length of outreach messages">Lengde på outreach-meldinger</span></label>
-      <div class="options-grid cols-3">
-        <label class="opt-label radio"><input type="radio" name="lengde" value="Kort"/><span class="opt-check"></span><span data-no="Kort (under 5 linjer)" data-en="Short (under 5 lines)">Kort</span></label>
-        <label class="opt-label radio"><input type="radio" name="lengde" value="Medium"/><span class="opt-check"></span><span data-no="Medium (5–10 linjer)" data-en="Medium (5–10 lines)">Medium</span></label>
-        <label class="opt-label radio"><input type="radio" name="lengde" value="Lang"/><span class="opt-check"></span><span data-no="Lang (10+ linjer med kontekst)" data-en="Long (10+ lines with context)">Lang</span></label>
-      </div>
+      <label><span data-no="Hvem er deres største konkurrenter?" data-en="Who are your biggest competitors?">Hvem er deres største konkurrenter?</span></label>
+      <textarea id="f-konkurrenter" data-placeholder-no="Nevn 2–4 konkurrenter og hva som skiller dere fra dem. Dette hjelper oss posisjonere dere riktig i outreach..." data-placeholder-en="Mention 2–4 competitors and what sets you apart from them. This helps us position you correctly in outreach..." placeholder="Nevn 2–4 konkurrenter og hva som skiller dere fra dem. Dette hjelper oss posisjonere dere riktig i outreach..."></textarea>
     </div>
     <div class="field">
-      <label><span data-no="Hva skal CTA-en (call-to-action) be om?" data-en="What should the CTA (call-to-action) ask for?">Hva skal CTA-en be om?</span></label>
-      <div class="options-grid">
-        <label class="opt-label radio"><input type="radio" name="cta" value="Book et møte"/><span class="opt-check"></span><span data-no="Book et møte / demo" data-en="Book a meeting / demo">Book et møte / demo</span></label>
-        <label class="opt-label radio"><input type="radio" name="cta" value="Kort samtale"/><span class="opt-check"></span><span data-no="En kort samtale (15 min)" data-en="A quick call (15 min)">En kort samtale (15 min)</span></label>
-        <label class="opt-label radio"><input type="radio" name="cta" value="Interesse / svar"/><span class="opt-check"></span><span data-no="Enkel respons — er dette relevant?" data-en="Simple reply — is this relevant?">Enkel respons</span></label>
-        <label class="opt-label radio"><input type="radio" name="cta" value="Last ned / prøv"/><span class="opt-check"></span><span data-no="Last ned ressurs / start gratis prøve" data-en="Download resource / start free trial">Last ned / prøv gratis</span></label>
-      </div>
-    </div>
-    <div class="field">
-      <label><span data-no="Er det emner, ord eller formuleringer vi skal unngå?" data-en="Are there topics, words or phrases we should avoid?">Ting vi skal unngå i tekstene?</span></label>
-      <textarea id="f-unngaa" data-placeholder-no="F.eks.: Unngå aggressive salgspitch, ikke nevn konkurrenter ved navn, alltid skriv på norsk..." data-placeholder-en="E.g.: Avoid aggressive sales pitches, don't name competitors, always write in Norwegian..." placeholder="F.eks.: Unngå aggressive salgspitch, ikke nevn konkurrenter ved navn, alltid skriv på norsk..."></textarea>
+      <label><span data-no="Er det noe vi absolutt ikke skal nevne eller gjøre i kommunikasjonen?" data-en="Is there anything we absolutely should not mention or do in communication?">Hva skal vi unngå?</span></label>
+      <textarea id="f-unngaa" data-placeholder-no="F.eks.: Ikke nevn konkurrenter ved navn, unngå å love konkrete tall vi ikke kan garantere, aldri nevn pris i første melding..." data-placeholder-en="E.g.: Don't name competitors, avoid promising specific numbers we can't guarantee, never mention price in the first message..." placeholder="F.eks.: Ikke nevn konkurrenter ved navn, unngå å love konkrete tall vi ikke kan garantere, aldri nevn pris i første melding..."></textarea>
     </div>
     <div class="step-nav">
       <button class="btn-back" onclick="prevStep()">←</button>
